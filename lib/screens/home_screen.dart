@@ -1,9 +1,9 @@
-import 'models/tabIcon_data.dart';
-import 'training/training_screen.dart';
+import '../models/tab_icon_data.dart';
+import '../screens/training_screen.dart';
 import 'package:flutter/material.dart';
-import 'bottom_navigation_view/bottom_bar_view.dart';
-import 'fitness_app_theme.dart';
-import 'my_diary/my_diary_screen.dart';
+import '../widgets/navigation/bottom_bar_view.dart';
+import '../themes/app_theme.dart';
+import '../screens/diary_screen.dart';
 
 class FitnessAppHomeScreen extends StatefulWidget {
   @override
@@ -17,7 +17,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
   List<TabIconData> tabIconsList = TabIconData.tabIconsList;
 
   Widget tabBody = Container(
-    color: FitnessAppTheme.background,
+    color: AppTheme.background,
   );
 
   @override
@@ -42,7 +42,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: FitnessAppTheme.background,
+      color: AppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: FutureBuilder<bool>(

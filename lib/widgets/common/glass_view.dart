@@ -1,7 +1,6 @@
-import '../../main.dart';
+import '../../utils/hex_color.dart';
 import 'package:flutter/material.dart';
-
-import '../fitness_app_theme.dart';
+import '../../themes/app_theme.dart';
 
 class GlassView extends StatelessWidget {
   final AnimationController? animationController;
@@ -39,7 +38,7 @@ class GlassView extends StatelessWidget {
                                 topRight: Radius.circular(8.0)),
                             // boxShadow: <BoxShadow>[
                             //   BoxShadow(
-                            //       color: FitnessAppTheme.grey.withOpacity(0.2),
+                            //       color: AppTheme.grey.withOpacity(0.2),
                             //       offset: Offset(1.1, 1.1),
                             //       blurRadius: 10.0),
                             // ],
@@ -53,11 +52,11 @@ class GlassView extends StatelessWidget {
                                   'Prepare your stomach for lunch with one or two glass of water',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    fontFamily: FitnessAppTheme.fontName,
+                                    fontFamily: AppTheme.fontName,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 14,
                                     letterSpacing: 0.0,
-                                    color: FitnessAppTheme.nearlyDarkBlue
+                                    color: AppTheme.nearlyDarkBlue
                                         .withOpacity(0.6),
                                   ),
                                 ),

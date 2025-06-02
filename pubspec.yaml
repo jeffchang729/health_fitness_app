@@ -1,6 +1,8 @@
-# pubspec.yaml
-name: health_fitness_app
-description: 健康健身追蹤應用程式
+name: book_me
+description: 智慧閱讀推薦應用程式
+
+# 應用程式版本資訊
+publish_to: 'none' # 移除此行如果您希望發布到 pub.dev
 
 version: 1.0.0+1
 
@@ -10,32 +12,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # UI 圖示
   cupertino_icons: ^1.0.2
-  font_awesome_flutter: ^10.6.0
+  
+  # HTTP 請求 - Google Books API
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  # Dart 代碼分析規則
   flutter_lints: ^2.0.0
-  # 圖示產生工具
-  flutter_launcher_icons: ^0.13.1
 
-# Flutter Launcher Icons 配置
-flutter_icons:
-  android: "launcher_icon"
-  ios: true
-  image_path: "assets/icons/app_icon.png"
-  min_sdk_android: 21 # android min sdk min:16, default 21
-  web:
-    generate: true
-    image_path: "assets/icons/app_icon.png"
-    background_color: "#hexcode"
-    theme_color: "#hexcode"
-  windows:
-    generate: true
-    image_path: "assets/icons/app_icon.png"
-    icon_size: 48 # min:48, max:256, default: 48
-
+# Flutter 設定
 flutter:
   uses-material-design: true
 

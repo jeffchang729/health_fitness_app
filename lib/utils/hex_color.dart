@@ -20,7 +20,7 @@ class HexColor extends Color {
     
     // 如果只有 6 位數，自動加上 FF 作為 alpha 值
     if (hexColor.length == 6) {
-      hexColor = 'FF' + hexColor;
+      hexColor = 'FF$hexColor';
     }
     
     // 轉換為整數並返回
@@ -30,6 +30,7 @@ class HexColor extends Color {
   /// 建立帶有指定透明度的顏色
   /// 
   /// [opacity] 透明度值，範圍 0.0-1.0
+  @override
   HexColor withOpacity(double opacity) {
     return HexColor('#${(opacity * 255).toInt().toRadixString(16).padLeft(2, '0')}${value.toRadixString(16).substring(2)}');
   }

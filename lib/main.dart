@@ -1,10 +1,10 @@
 // main.dart
 
 import 'dart:io';
-import 'themes/app_theme.dart';  // 更新：使用統一的主題檔案
+import 'themes/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'screens/home_screen.dart';  // 更新：使用新的路徑
+import 'screens/screen_controller.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 /// 應用程式主入口點
@@ -16,21 +16,23 @@ void main() async {
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
-  ]).then((_) => runApp(HealthFitnessApp()));
+  ]).then((_) => runApp(const MyApp()));
 }
 
-/// 健康健身應用程式主類別
-class HealthFitnessApp extends StatelessWidget {
+/// 應用程式主類別
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     // 設定系統 UI 樣式
     _configureSystemUI();
     
     return MaterialApp(
-      title: 'Health Fitness',
+      title: 'Reading Community App',
       debugShowCheckedModeBanner: false,
       theme: _buildAppTheme(),
-      home: FitnessAppHomeScreen(),  // 使用正確的類別名稱
+      home: const ScreenController(),
     );
   }
 
@@ -51,9 +53,8 @@ class HealthFitnessApp extends StatelessWidget {
   ThemeData _buildAppTheme() {
     return ThemeData(
       primarySwatch: Colors.blue,
-      textTheme: AppTheme.textTheme,  // 使用統一主題
+      textTheme: AppTheme.textTheme,
       platform: TargetPlatform.iOS,
-      // 移除應用全域的陰影效果
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
     );

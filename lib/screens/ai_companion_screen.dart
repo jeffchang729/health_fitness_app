@@ -1,22 +1,23 @@
-import '../widgets/training/area_list_view.dart';
-import '../widgets/common/running_view.dart';
+// screens/ai_companion_screen.dart
+
+import '../widgets/ai/chat_view.dart';
+import '../widgets/ai/daily_report_view.dart';
 import '../widgets/common/title_view.dart';
-import '../widgets/common/workout_view.dart';
 import 'package:flutter/material.dart';
 import '../themes/app_theme.dart';
 
-class TrainingScreen extends StatefulWidget {
-  const TrainingScreen({Key? key, this.animationController}) : super(key: key);
+/// AI陪伴畫面 - 聊天與個人分析報告
+class AiCompanionScreen extends StatefulWidget {
+  const AiCompanionScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _TrainingScreenState createState() => _TrainingScreenState();
+  _AiCompanionScreenState createState() => _AiCompanionScreenState();
 }
 
-class _TrainingScreenState extends State<TrainingScreen>
+class _AiCompanionScreenState extends State<AiCompanionScreen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
-
   List<Widget> listViews = <Widget>[];
   final ScrollController scrollController = ScrollController();
   double topBarOpacity = 0.0;
@@ -55,12 +56,13 @@ class _TrainingScreenState extends State<TrainingScreen>
   }
 
   void addAllListData() {
-    const int count = 5;
+    const int count = 4;
 
+    // 每日分析報告標題
     listViews.add(
       TitleView(
-        titleTxt: 'Your program',
-        subTxt: 'Details',
+        titleTxt: '每日分析報告',
+        subTxt: '查看',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -69,8 +71,22 @@ class _TrainingScreenState extends State<TrainingScreen>
       ),
     );
 
+    // 每日分析報告視圖
     listViews.add(
-      WorkoutView(
+      DailyReportView(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    // AI 聊天標題
+    listViews.add(
+      TitleView(
+        titleTxt: 'AI 聊天陪伴',
+        subTxt: '開始聊天',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
@@ -78,36 +94,15 @@ class _TrainingScreenState extends State<TrainingScreen>
         animationController: widget.animationController!,
       ),
     );
+
+    // AI 聊天視圖
     listViews.add(
-      RunningView(
+      ChatView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
                 Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
-      ),
-    );
-
-    listViews.add(
-      TitleView(
-        titleTxt: 'Area of focus',
-        subTxt: 'more',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    listViews.add(
-      AreaListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 5, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController!,
       ),
     );
   }
@@ -205,7 +200,7 @@ class _TrainingScreenState extends State<TrainingScreen>
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Training',
+                                  'AI 陪伴',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,
@@ -213,67 +208,6 @@ class _TrainingScreenState extends State<TrainingScreen>
                                     fontSize: 22 + 6 - 6 * topBarOpacity,
                                     letterSpacing: 1.2,
                                     color: AppTheme.darkerText,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 38,
-                              width: 38,
-                              child: InkWell(
-                                highlightColor: Colors.transparent,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(32.0)),
-                                onTap: () {},
-                                child: Center(
-                                  child: Icon(
-                                    Icons.keyboard_arrow_left,
-                                    color: AppTheme.grey,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8,
-                                right: 8,
-                              ),
-                              child: Row(
-                                children: <Widget>[
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 8),
-                                    child: Icon(
-                                      Icons.calendar_today,
-                                      color: AppTheme.grey,
-                                      size: 18,
-                                    ),
-                                  ),
-                                  Text(
-                                    '15 May',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontFamily: AppTheme.fontName,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 18,
-                                      letterSpacing: -0.2,
-                                      color: AppTheme.darkerText,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: 38,
-                              width: 38,
-                              child: InkWell(
-                                highlightColor: Colors.transparent,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(32.0)),
-                                onTap: () {},
-                                child: Center(
-                                  child: Icon(
-                                    Icons.keyboard_arrow_right,
-                                    color: AppTheme.grey,
                                   ),
                                 ),
                               ),

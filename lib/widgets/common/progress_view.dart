@@ -1,11 +1,14 @@
+// widgets/common/progress_view.dart
+
 import '../../themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class BodyMeasurementView extends StatelessWidget {
+/// 進度追蹤視圖
+class ProgressView extends StatelessWidget {
   final AnimationController? animationController;
   final Animation<double>? animation;
 
-  const BodyMeasurementView(
+  const ProgressView(
       {Key? key, this.animationController, this.animation})
       : super(key: key);
 
@@ -16,8 +19,8 @@ class BodyMeasurementView extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return FadeTransition(
           opacity: animation!,
-          child: new Transform(
-            transform: new Matrix4.translationValues(
+          child: Transform(
+            transform: Matrix4.translationValues(
                 0.0, 30 * (1.0 - animation!.value), 0.0),
             child: Padding(
               padding: const EdgeInsets.only(
@@ -25,7 +28,7 @@ class BodyMeasurementView extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: AppTheme.white,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(8.0),
                       bottomLeft: Radius.circular(8.0),
                       bottomRight: Radius.circular(8.0),
@@ -33,7 +36,7 @@ class BodyMeasurementView extends StatelessWidget {
                   boxShadow: <BoxShadow>[
                     BoxShadow(
                         color: AppTheme.grey.withOpacity(0.2),
-                        offset: Offset(1.1, 1.1),
+                        offset: const Offset(1.1, 1.1),
                         blurRadius: 10.0),
                   ],
                 ),
@@ -46,11 +49,11 @@ class BodyMeasurementView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(
+                          const Padding(
+                            padding: EdgeInsets.only(
                                 left: 4, bottom: 8, top: 16),
                             child: Text(
-                              'Weight',
+                              '本月進度',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontFamily: AppTheme.fontName,
@@ -64,15 +67,15 @@ class BodyMeasurementView extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              Row(
+                              const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: <Widget>[
                                   Padding(
-                                    padding: const EdgeInsets.only(
+                                    padding: EdgeInsets.only(
                                         left: 4, bottom: 3),
                                     child: Text(
-                                      '206.8',
+                                      '78%',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: AppTheme.fontName,
@@ -83,10 +86,10 @@ class BodyMeasurementView extends StatelessWidget {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(
+                                    padding: EdgeInsets.only(
                                         left: 8, bottom: 8),
                                     child: Text(
-                                      'Ibs',
+                                      '完成',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: AppTheme.fontName,
@@ -115,7 +118,7 @@ class BodyMeasurementView extends StatelessWidget {
                                         padding:
                                             const EdgeInsets.only(left: 4.0),
                                         child: Text(
-                                          'Today 8:26 AM',
+                                          '今日 8:26 AM',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             fontFamily: AppTheme.fontName,
@@ -129,11 +132,11 @@ class BodyMeasurementView extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
+                                  const Padding(
+                                    padding: EdgeInsets.only(
                                         top: 4, bottom: 14),
                                     child: Text(
-                                      'InBody SmartScale',
+                                      '智慧追蹤系統',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: AppTheme.fontName,
@@ -156,7 +159,7 @@ class BodyMeasurementView extends StatelessWidget {
                           left: 24, right: 24, top: 8, bottom: 8),
                       child: Container(
                         height: 2,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: AppTheme.background,
                           borderRadius: BorderRadius.all(Radius.circular(4.0)),
                         ),
@@ -172,8 +175,8 @@ class BodyMeasurementView extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(
-                                  '185 cm',
+                                const Text(
+                                  '15 項',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontFamily: AppTheme.fontName,
@@ -186,7 +189,7 @@ class BodyMeasurementView extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 6),
                                   child: Text(
-                                    'Height',
+                                    '已完成',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: AppTheme.fontName,
@@ -208,8 +211,8 @@ class BodyMeasurementView extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
-                                    Text(
-                                      '27.3 BMI',
+                                    const Text(
+                                      '27.3 分',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontFamily: AppTheme.fontName,
@@ -222,7 +225,7 @@ class BodyMeasurementView extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        'Overweight',
+                                        '平均評分',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: AppTheme.fontName,
@@ -246,8 +249,8 @@ class BodyMeasurementView extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: <Widget>[
-                                    Text(
-                                      '20%',
+                                    const Text(
+                                      '5 項',
                                       style: TextStyle(
                                         fontFamily: AppTheme.fontName,
                                         fontWeight: FontWeight.w500,
@@ -259,7 +262,7 @@ class BodyMeasurementView extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        'Body fat',
+                                        '進行中',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: AppTheme.fontName,

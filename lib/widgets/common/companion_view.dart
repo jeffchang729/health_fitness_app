@@ -1,10 +1,13 @@
-import '../common/wave_view.dart';
+// widgets/common/companion_view.dart
+
 import '../../themes/app_theme.dart';
 import '../../utils/hex_color.dart';
+import 'wave_view.dart';
 import 'package:flutter/material.dart';
 
-class WaterView extends StatefulWidget {
-  const WaterView(
+/// AI助手陪伴視圖
+class CompanionView extends StatefulWidget {
+  const CompanionView(
       {Key? key, this.mainScreenAnimationController, this.mainScreenAnimation})
       : super(key: key);
 
@@ -12,10 +15,10 @@ class WaterView extends StatefulWidget {
   final Animation<double>? mainScreenAnimation;
 
   @override
-  _WaterViewState createState() => _WaterViewState();
+  _CompanionViewState createState() => _CompanionViewState();
 }
 
-class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
+class _CompanionViewState extends State<CompanionView> with TickerProviderStateMixin {
   Future<bool> getData() async {
     await Future<dynamic>.delayed(const Duration(milliseconds: 50));
     return true;
@@ -57,7 +60,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                       Expanded(
                         child: Column(
                           children: <Widget>[
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
@@ -66,10 +69,10 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   children: <Widget>[
                                     Padding(
-                                      padding: const EdgeInsets.only(
+                                      padding: EdgeInsets.only(
                                           left: 4, bottom: 3),
                                       child: Text(
-                                        '2100',
+                                        '85%',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: AppTheme.fontName,
@@ -80,10 +83,10 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(
+                                      padding: EdgeInsets.only(
                                           left: 8, bottom: 8),
                                       child: Text(
-                                        'ml',
+                                        '活躍度',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: AppTheme.fontName,
@@ -97,10 +100,10 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                   ],
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(
+                                  padding: EdgeInsets.only(
                                       left: 4, top: 2, bottom: 14),
                                   child: Text(
-                                    'of daily goal 3.5L',
+                                    '今日互動目標 100%',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: AppTheme.fontName,
@@ -118,9 +121,9 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                   left: 4, right: 4, top: 8, bottom: 16),
                               child: Container(
                                 height: 2,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: AppTheme.background,
-                                  borderRadius: const BorderRadius.all(
+                                  borderRadius: BorderRadius.all(
                                       Radius.circular(4.0)),
                                 ),
                               ),
@@ -148,7 +151,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                         padding:
                                             const EdgeInsets.only(left: 4.0),
                                         child: Text(
-                                          'Last drink 8:26 AM',
+                                          '最後互動 8:26 AM',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             fontFamily: AppTheme.fontName,
@@ -173,12 +176,15 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                         SizedBox(
                                           width: 24,
                                           height: 24,
-                                          child: Image.asset(
-                                              'assets/fitness_app/bell.png'),
+                                          child: Icon(
+                                            Icons.smart_toy,
+                                            color: HexColor('#F65283'),
+                                            size: 20,
+                                          ),
                                         ),
                                         Flexible(
                                           child: Text(
-                                            'Your bottle is empty, refill it!.',
+                                            'AI助手準備好陪伴你了！',
                                             textAlign: TextAlign.start,
                                             style: TextStyle(
                                               fontFamily: AppTheme.fontName,
@@ -216,8 +222,8 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                       blurRadius: 8.0),
                                 ],
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(6.0),
+                              child: const Padding(
+                                padding: EdgeInsets.all(6.0),
                                 child: Icon(
                                   Icons.add,
                                   color: AppTheme.nearlyDarkBlue,
@@ -240,8 +246,8 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                       blurRadius: 8.0),
                                 ],
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(6.0),
+                              child: const Padding(
+                                padding: EdgeInsets.all(6.0),
                                 child: Icon(
                                   Icons.remove,
                                   color: AppTheme.nearlyDarkBlue,
@@ -272,8 +278,8 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                   blurRadius: 4),
                             ],
                           ),
-                          child: WaveView(
-                            percentageValue: 60.0,
+                          child: const WaveView(
+                            percentageValue: 85.0,
                           ),
                         ),
                       )

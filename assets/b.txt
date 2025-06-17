@@ -1,0 +1,43 @@
+列出磁碟區 Data 的資料夾 PATH
+磁碟區序號為 E059-CAF4
+D:.
+│  b.txt
+│  
+├─fitness_app
+│      area1.png
+│      area2.png
+│      area3.png
+│      back.png
+│      bell.png
+│      bottle.png
+│      breakfast.png
+│      burned.png
+│      dinner.png
+│      eaten.png
+│      fitness_app.png
+│      glass.png
+│      lunch.png
+│      runner.png
+│      snack.png
+│      tab_1.png
+│      tab_1s.png
+│      tab_2.png
+│      tab_2s.png
+│      tab_3.png
+│      tab_3s.png
+│      tab_4.png
+│      tab_4s.png
+│      
+├─fonts
+│      Roboto-Bold.ttf
+│      Roboto-Medium.ttf
+│      Roboto-Regular.ttf
+│      WorkSans-Bold.ttf
+│      WorkSans-Medium.ttf
+│      WorkSans-Regular.ttf
+│      WorkSans-SemiBold.ttf
+│      
+├─icons
+│      app_icon.png
+│      
+└─images
